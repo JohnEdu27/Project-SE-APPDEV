@@ -18,10 +18,7 @@ class ResidentsController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function createAccount()
-    {
-        return view()
-    }
+   
 
     /**
      * Store a newly created resource in storage.
@@ -34,7 +31,7 @@ class ResidentsController extends Controller
             'password' => 'required|string|min:8|confirmed',
 
 
-        ])
+        ]);
     }
 
     /**
