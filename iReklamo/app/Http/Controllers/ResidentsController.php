@@ -65,4 +65,8 @@ class ResidentsController extends Controller
     {
         //
     }
+
+    public function homepage() {
+        return view('homepage');
+    }
 }

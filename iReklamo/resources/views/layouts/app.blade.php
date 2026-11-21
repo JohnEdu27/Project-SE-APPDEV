@@ -11,8 +11,8 @@
         <header>
             <h1>iReklamo</h1>
             <nav>
-                <a href="/login">Login</a>
-                <a href="/signup">Signup</a>
+                <a href="{{ route('login') }}">Login</a>
+                <a href="{{ route('register') }}">Signup</a>
             </nav>
         </header>
         <main>
