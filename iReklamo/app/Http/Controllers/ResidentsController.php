@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Residents;
 use Illuminate\Http\Request;
 
+use Illuminate\Support\Facades\Auth;
+
 class ResidentsController extends Controller
 {
     /**
@@ -67,6 +69,14 @@ class ResidentsController extends Controller
     }
 
     public function homepage() {
-        return view('homepage');
+        return view('resident.home');
+    }
+
+    public function logout(Request $request)
+    {
+        Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+        return redirect('/');
     }
 }

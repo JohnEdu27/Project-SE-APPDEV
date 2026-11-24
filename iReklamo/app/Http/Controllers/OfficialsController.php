@@ -62,4 +62,8 @@ class OfficialsController extends Controller
     {
         //
     }
+
+    public function OfficialPage() {
+        return view('official.dashboard');
+    }
 }

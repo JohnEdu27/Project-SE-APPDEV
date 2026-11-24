@@ -1,45 +1,206 @@
-@extends('layouts.app')
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - iReklamo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0088FF 0%, #FDFDFE 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
 
-@section('title','Register')
+        .register-container {
+            background: white;
+            border-radius: 30px;
+            padding: 50px;
+            max-width: 500px;
+            width: 100%;
+            box-shadow: 0 20px 60px rgba(0,136,255,0.2);
+        }
 
-@section('content')
-	
-	<h2>Register Form</h2>
+        .logo {
+            text-align: center;
+            margin-bottom: 40px;
+        }
 
-	<form action="{{ route('Register.submit') }}" method="POST" class="space-y-4 center">
+        .logo h1 {
+            color: #0088FF;
+            font-size: 28px;
+            font-weight: 900;
+            letter-spacing: 2px;
+        }
 
-		<label class="text-sm"> 
-			<input type="name" name="name" required>
-			@error('name')
-				<p style="color:red"> {{ $message }} </p>
-			@enderror 
-		</label>
+        .form-group {
+            margin-bottom: 20px;
+        }
 
-		<label class="text-sm"> 
-			<input type="email" name="email" required>
-			@error('email')
-				<p style="color:red"> {{ $message }} </p>
-			@enderror 
-		</label>
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 600;
+            font-size: 14px;
+        }
 
-		<label class="text-sm"> 
-			<input type="password" name="password" required>
-			@error('password')
-				<p style="color:red"> {{ $message }} </p>
-			@enderror 
-		</label>
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 12px;
+            font-size: 15px;
+            transition: border-color 0.3s;
+        }
 
-		<label class="text-sm"> 
-			<input type="password" name="password_confirmation">
-		</label>
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #0088FF;
+        }
 
+        .form-row {
+            display: grid;
+            gap: 15px;
+        }
 
-		<label class="text-sm">
-			<button>Sign up</button>
+        .btn-register {
+            width: 100%;
+            background: #0088FF;
+            color: white;
+            padding: 16px;
+            border: none;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 10px;
+        }
 
-		</label>
+        .btn-register:hover {
+            background: #0066cc;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0,136,255,0.3);
+        }
 
-	</form>
+        .login-link {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 30px;
+            border-top: 1px solid #e0e0e0;
+        }
 
-@endsection
+        .login-link p {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .login-link a {
+            color: #0088FF;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .login-link a:hover {
+            text-decoration: underline;
+        }
+
+        .error-message {
+            background: #fee;
+            color: #c33;
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+
+        .validation-error {
+            color: #c33;
+            font-size: 12px;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="register-container">
+        <div class="logo">
+            <h1>CREATE ACCOUNT</h1>
+        </div>
+
+        @if(session('error'))
+            <div class="error-message">
+                {{ session('error') }}
+            </div>
+        @endif
+
+        <form method="POST" action="{{ route('Register.submit') }}">
+            @csrf
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" value="{{ old('name') }}" required>
+                    @error('name')
+                        <div class="validation-error">{{ $message }}</div>
+                    @enderror
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" value="{{ old('email') }}" required>
+                @error('email')
+                    <div class="validation-error">{{ $message }}</div>
+                @enderror
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone" value="{{ old('phone') }}" required>
+                @error('phone')
+                    <div class="validation-error">{{ $message }}</div>
+                @enderror
+            </div>
+
+            <div class="form-group">
+                <label for="address">Address</label>
+                <input type="text" id="address" name="address" value="{{ old('address') }}" required>
+                @error('address')
+                    <div class="validation-error">{{ $message }}</div>
+                @enderror
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required>
+                    @error('password')
+                        <div class="validation-error">{{ $message }}</div>
+                    @enderror
+                </div>
+                <div class="form-group">
+                    <label for="password_confirmation">Confirm Password</label>
+                    <input type="password" id="password_confirmation" name="password_confirmation" required>
+                </div>
+            </div>
+
+            <button type="submit" class="btn-register">Create Account</button>
+        </form>
+
+        <div class="login-link">
+            <p>Already have an account? <a href="{{ route('login') }}">Login here</a></p>
+        </div>
+    </div>
+</body>
+</html>

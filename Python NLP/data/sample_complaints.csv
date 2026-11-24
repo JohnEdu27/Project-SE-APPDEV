@@ -1,0 +1,57 @@
+text,category,urgency
+Ang ingay ng karaoke ng kapitbahay hanggang madaling araw,noise,medium
+"Loud music every night from the house beside us, cannot sleep",noise,medium
+"Nagvi-videoke sila hanggang 2am, nakakaistorbo sa mga bata",noise,medium
+Construction noise starts at 5am every day,noise,low
+Maingay ang mga nag-iinuman sa kanto gabi-gabi,noise,medium
+Sobrang lakas ng speaker ng tindahan sa tapat namin,noise,low
+Barking dogs and loud parties disturbing the whole street at night,noise,medium
+Ingay ng motor na walang muffler tuwing madaling araw,noise,low
+Hindi pa nakokolekta ang basura namin ng isang linggo,garbage,medium
+Garbage is piling up at the corner and smells bad,garbage,medium
+May nagtapon ng basura sa tabi ng kalsada sa Purok 3,garbage,low
+"Overflowing trash bins near the market, attracting flies",garbage,medium
+"Walang segregation ng basura, halo-halo ang kinukuha ng truck",garbage,low
+Illegal dumping beside the creek again,garbage,medium
+Mabaho na ang tambak ng basura sa tapat ng eskwelahan,garbage,medium
+Missed garbage collection schedule for two weeks now,garbage,medium
+Maraming butas ang kalsada sa harap ng barangay hall,road,medium
+Large pothole on the main road causing accidents,road,high
+Sira ang streetlight sa kanto kaya madilim ang daan,road,medium
+Broken sidewalk near the school is dangerous for kids,road,medium
+"Walang ilaw ang poste sa Purok 5, delikado sa gabi",road,medium
+The road is cracked and needs repair before the rainy season,road,low
+"Sirang tulay sa may ilog, hindi madaanan ng sasakyan",road,high
+"Open manhole cover on the street, someone might fall in",road,high
+Baha na naman sa amin tuwing umuulan dahil barado ang kanal,flooding,medium
+Clogged drainage causing flood in our street after every rain,flooding,medium
+Umaapaw ang estero at pumapasok na ang tubig sa bahay,flooding,high
+"Canal is full of garbage and water cannot flow, flooding the road",flooding,medium
+"Tumataas ang baha sa kalsada, kailangan ng paglilinis ng drainage",flooding,medium
+Flood water is knee deep in our area during typhoon,flooding,high
+Barado ang imburnal sa harap ng palengke,flooding,low
+"Creek overflowing again, please declog the waterways",flooding,medium
+May nagnakaw ng motor sa tapat ng bahay namin kagabi,peace_order,high
+Suspicious men loitering around the subdivision at night,peace_order,medium
+"Nagkaroon ng away at suntukan sa kanto, may nasugatan",peace_order,high
+"Theft in our neighborhood, someone stole our bicycle",peace_order,high
+May mga lasing na nanggugulo sa kalsada gabi-gabi,peace_order,medium
+Group of teenagers vandalizing walls and fighting in the street,peace_order,medium
+"Nakawan sa bahay ng kapitbahay namin, walang nagroronda",peace_order,high
+"Please add more tanod patrols, there are many snatchers here",peace_order,medium
+Walang tubig sa gripo namin ng tatlong araw,utilities,high
+No water supply in our area since Monday,utilities,medium
+Madalas mawalan ng kuryente sa aming lugar,utilities,medium
+Power outage every evening for the whole week,utilities,medium
+"Mahina ang pressure ng tubig, halos hindi umaabot sa second floor",utilities,low
+"Exposed electrical wires hanging from the post, very dangerous",utilities,high
+"Maruming tubig ang lumalabas sa gripo, kulay kalawang",utilities,medium
+Water pipe is leaking on the street and wasting water,utilities,low
+"Maraming asong gala sa kalye, may nangangagat",stray_animals,high
+Stray dogs chasing people and children in our street,stray_animals,high
+Pakisaway ang mga asong walang tali na nakakagat ng bata,stray_animals,high
+Too many stray cats and dogs scattering garbage and fighting,stray_animals,low
+May aso ng kapitbahay na laging nakakawala at nananakot,stray_animals,medium
+"A dog bit a child yesterday, owner refuses to take responsibility",stray_animals,high
+"Mga gala na baboy at kambing sa kalsada, nakakasagabal sa daan",stray_animals,low
+Stray animals roaming near the school endangering students,stray_animals,medium
