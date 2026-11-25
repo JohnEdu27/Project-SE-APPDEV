@@ -79,4 +79,8 @@ class ResidentsController extends Controller
         $request->session()->regenerateToken();
         return redirect('/');
     }
+
+    public function showSubmit() {
+        return view('resident.submit_complaint');
+    }
 }

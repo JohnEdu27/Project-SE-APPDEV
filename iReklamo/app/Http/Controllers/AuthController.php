@@ -37,7 +37,7 @@ class AuthController extends Controller
         }
         if($user->role === 'official')
         {
-            return redirect()->route('Official.dashboard')->with('success', 'Welcome back');
+            return redirect()->route('official.dashboard')->with('success', 'Welcome back');
         }
         elseif($user->role === 'admin') {
             return redirect()->route('Admin.dashboard')->with('success', 'Welcome back');
@@ -55,6 +55,10 @@ class AuthController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'email', 'max:255', 'unique:users,email'],
             'password' => ['required', 'confirmed', 'min:8'],
+            'phone' => ['required', 'regex:/^(09|\+639)\d{9}$/', 'unique:users,phone'],
+            'address' => ['required', 'string', 'max:255'],
+            
+
         ]);
 
         // Public registration always creates a normal gamer account.

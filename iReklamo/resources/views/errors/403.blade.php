@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>403 - Access Denied | Barangay Connect</title>
+    <title>403 - Access Denied | iReklamo</title>
     <style>
         * {
             margin: 0;
@@ -164,7 +164,7 @@
 <body>
     <div class="error-container">
         <div class="logo">
-            <h1>BARANGAY CONNECT</h1>
+            <h1>IREKLAMO</h1>
         </div>
 
         <div class="icon-circle">🔒</div>

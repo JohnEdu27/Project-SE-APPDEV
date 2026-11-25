@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Services\ComplaintRouter;
 use App\Models\Complaint;
 use App\Services\ComplaintClassifier;
 use Illuminate\Http\Request;
@@ -10,14 +11,15 @@ use Illuminate\Validation\Rule;
 
 class ComplaintController extends Controller
 {
-    public function __construct(private ComplaintClassifier $classifier) {}
+    public function __construct(private ComplaintClassifier $classifier,
+    private ComplaintRouter $router,) {}
 
     // POST /api/complaints
     public function store(Request $request)
     {
         $data = $request->validate([
             'complainant_name' => 'nullable|string|max:255',
-            'contact'          => 'nullable|string|max:50',
+            'contact'          => ['nullable','regex:/^(09|\+639)\d{9}$/'],
             'purok'            => 'nullable|string|max:100',
             'text'             => 'required|string|min:10|max:2000',
         ]);
@@ -25,6 +27,7 @@ class ComplaintController extends Controller
         $pred = $this->classifier->classify($data['text']);
 
         $complaint = Complaint::create($data + [
+            'user_id'            => $request->user()->id,
             'predicted_category' => $pred['category'] ?? null,
             'confidence'         => $pred['confidence'] ?? null,
             'predicted_urgency'  => $pred['urgency'] ?? null,
@@ -32,7 +35,20 @@ class ComplaintController extends Controller
             'needs_review'       => $pred['needs_review'] ?? true, // NLP down -> staff classifies manually
         ]);
 
-        return response()->json($complaint, 201);
+        $this->router->assign($complaint);
+
+        if ($request->wantsJson()) {                       // keeps Postman testing working
+            return response()->json($complaint->load('official'), 201);
+        }
+
+        return redirect()->route('my.complaints', $complaint->tracking_id)
+            ->with('success', 'Complaint submitted! Save your tracking ID.');
+    }
+
+    public function track(string $trackingId)
+    {
+        $complaint = Complaint::with('official')->where('tracking_id', $trackingId)->firstOrFail();
+        return view('complaints.track', compact('complaint'));
     }
 
     // GET /api/complaints?status=&category=&urgency=&purok=&needs_review=1&sort=urgency
@@ -110,5 +126,14 @@ class ComplaintController extends Controller
         return $result
             ? response()->json($result)
             : response()->json(['error' => 'NLP service unavailable'], 503);
+    }
+     public function indexREQ(Request $request)
+    {
+        $complaints = $request->user()->complaints()
+            ->with(['user', 'official'])
+            ->latest()
+            ->paginate(10);
+
+        return view('resident.complaint_tracking', compact('complaints'));
     }
 }

@@ -9,6 +9,7 @@ return new class extends Migration {
     {
         Schema::create('complaints', function (Blueprint $t) {
             $t->id();
+            $t->string('tracking_id', 20)->nullable()->unique();
             $t->string('complainant_name')->nullable();
             $t->string('contact')->nullable();
             $t->string('purok')->nullable();
@@ -20,6 +21,7 @@ return new class extends Migration {
             $t->enum('status', ['pending', 'in_progress', 'resolved', 'dismissed'])->default('pending')->index();
             $t->text('remarks')->nullable();
             $t->timestamps();
+            $t->string('user_id')->nullable();
         });
     }
 

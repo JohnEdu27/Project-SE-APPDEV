@@ -1,5 +1,5 @@
 <?php
-
+use App\routes\api;
 use Illuminate\Foundation\Inspiring;
 use Illuminate\Support\Facades\Artisan;
 

@@ -1,4 +1,5 @@
 <?php
+use App\Http\Controllers\ComplaintController;
 use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ResidentsController;
@@ -47,10 +48,20 @@ Route::post('/logout', [AuthController::class, 'logout'])->middleware('auth')->n
 Route::middleware('auth', 'verified')->group(function() {
 Route::get('/homepage', [ResidentsController::class, 'homepage'])->name('homepage');
 Route::post('/logout', [ResidentsController::class, 'logout'])->name('logout');
+Route::get('/submit-complaint', [ResidentsController::class, 'showSubmit'])->name('submit.complaint');
+Route::post('/submit-complaint', [ComplaintController::class, 'store'])->name('complaints.store');
+Route::get('/my-complaints', [ComplaintController::class, 'indexREQ'])->name('my.complaints');
 });
 
 Route::middleware('auth', 'verified', 'role:official')->prefix('official')->group(function () {
-Route::get('/dashboard', [OfficialsController::class, 'OfficialPage'])->name('Official.dashboard');
+
+Route::get('/complaints', [ComplaintController::class, 'index']);
+Route::get('/complaints/{complaint}', [ComplaintController::class, 'show']);
+Route::patch('/complaints/{complaint}', [ComplaintController::class, 'update']);
+Route::get('/stats', [ComplaintController::class, 'stats']);
+Route::post('/retrain', [ComplaintController::class, 'retrain']);
+Route::get('/dashboard', [OfficialsController::class, 'index'])->name('official.dashboard');
+Route::patch('/complaints/{complaint}/status', [OfficialsController::class, 'updateStatus'])->name('official.complaints.status');
 
 
 });
@@ -59,3 +70,6 @@ Route::get('/dashboard', [AuthController::class, 'adminPage'])->name('Admin.dash
 
 
 });
+
+
+

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Barangay Connect - Welcome</title>
+    <title>iReklamo - Welcome</title>
     <style>
         * {
             margin: 0;
@@ -183,21 +183,16 @@
 <body>
     <nav class="navbar">
         <div class="logo">IREKLAMO</div>
-        <ul class="nav-links">
-            <li><a href="#about">ABOUT</a></li>
-            <li><a href="#services">SERVICES</a></li>
-            <li><a href="#contact">CONTACT</a></li>
-            <li><a href="#community">COMMUNITY</a></li>
-        </ul>
+
         <a href="{{ route('login') }}" class="btn-enroll">Login</a>
     </nav>
 
     <section class="hero">
         <h1>SUBMIT COMPLAINTS,<br>ONLINE!</h1>
-        <p>Empowering barangay officials and residents with modern digital tools for better governance, communication, and community development.</p>
+        <p>Complaint System for Residents via Online!</p>
         <div class="hero-buttons">
             <a href="{{ route('register') }}" class="btn-primary">Get Started</a>
-            <a href="#about" class="btn-secondary">Learn More</a>
+
         </div>
     </section>
 
@@ -205,18 +200,18 @@
         <div class="features-grid">
             <div class="feature-card">
                 <div class="feature-icon">📋</div>
-                <h3>Document Requests</h3>
-                <p>Request barangay certificates and documents online with easy tracking and fast processing.</p>
+                <h3>Submit Complaints</h3>
+                <p>Submit your Complaints online via iReklamo.</p>
             </div>
             <div class="feature-card">
                 <div class="feature-icon">📢</div>
-                <h3>Announcements</h3>
-                <p>Stay updated with the latest barangay news, events, and important announcements.</p>
+                <h3>Monitor Complaints Status</h3>
+                <p>Stay updated with the status of your Complaints.</p>
             </div>
             <div class="feature-card">
                 <div class="feature-icon">🤝</div>
-                <h3>Community Services</h3>
-                <p>Access various community services and programs designed to improve your quality of life.</p>
+                <h3>Fast Resolution</h3>
+                <p>improve your quality of life. Less Hassle Less Problem :D</p>
             </div>
         </div>
     </section>

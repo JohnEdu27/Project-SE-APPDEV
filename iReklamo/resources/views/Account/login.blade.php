@@ -153,11 +153,17 @@
                 <label for="email">Email Address</label>
                 <input type="email" id="email" name="email" required autofocus>
             </div>
+                @error('email')
+                    <p style="color:red"> {{ $message }} </p>
+                @enderror
 
             <div class="form-group">
                 <label for="password">Password</label>
                 <input type="password" id="password" name="password" required>
             </div>
+                @error('password')
+                    <p style="color:red"> {{ $message }} </p>
+                @enderror
 
             <div class="form-group">
                 <label style="display: flex; align-items: center; gap: 8px;">

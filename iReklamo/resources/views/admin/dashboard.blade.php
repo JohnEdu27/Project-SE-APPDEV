@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard - Barangay Connect</title>
+    <title>Admin Dashboard - iReklamo</title>
     <style>
         * {
             margin: 0;
@@ -290,7 +290,7 @@
                         <tr>
                             <th>ID</th>
                             <th>Resident</th>
-                            <th>Document Type</th>
+                            <th>Complaint Type</th>
                             <th>Date</th>
                             <th>Status</th>
                             <th>Action</th>
@@ -300,7 +300,7 @@
                         <tr>
                             <td>#001</td>
                             <td>Juan Dela Cruz</td>
-                            <td>Barangay Certificate</td>
+                            <td>Garbage Complaint</td>
                             <td>Nov 24, 2026</td>
                             <td><span class="status-badge status-pending">Pending</span></td>
                             <td><a href="#" class="btn-action">View</a></td>
@@ -308,7 +308,7 @@
                         <tr>
                             <td>#002</td>
                             <td>Maria Santos</td>
-                            <td>Certificate of Residency</td>
+                            <td>Flooding</td>
                             <td>Nov 24, 2026</td>
                             <td><span class="status-badge status-approved">Approved</span></td>
                             <td><a href="#" class="btn-action">View</a></td>
@@ -316,7 +316,7 @@
                         <tr>
                             <td>#003</td>
                             <td>Pedro Reyes</td>
-                            <td>Business Permit</td>
+                            <td>Maoy Complaint</td>
                             <td>Nov 23, 2026</td>
                             <td><span class="status-badge status-pending">Pending</span></td>
                             <td><a href="#" class="btn-action">View</a></td>

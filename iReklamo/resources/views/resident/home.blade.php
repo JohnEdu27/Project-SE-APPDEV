@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resident Homepage - Barangay Connect</title>
+    <title>Resident Homepage - iReklamo</title>
     <style>
         * {
             margin: 0;
@@ -248,10 +248,10 @@
             <li><a href="#">Services</a></li>
             <li><a href="#">Announcements</a></li>
             <li><a href="#">Profile</a></li>
-            <form method="POST" action="/logout">
+            <li><form method="POST" action="/logout">
             @csrf
             <button type="submit">Log out</button>
-            </form>
+            </form></li>
 
         </ul>
         <div class="user-menu">
@@ -270,15 +270,15 @@
         </div>
 
         <div class="services-grid">
-            <a href="#" class="service-card">
+            <a href="/submit-complaint" class="service-card">
                 <div class="service-icon">📋</div>
-                <h3>Request Documents</h3>
-                <p>Apply for barangay certificates, permits, and other official documents online.</p>
+                <h3>Submit Complaints</h3>
+                <p>you can now submit complaints via online.</p>
             </a>
-            <a href="#" class="service-card">
+            <a href="/my-complaints" class="service-card">
                 <div class="service-icon">📢</div>
-                <h3>View Announcements</h3>
-                <p>Stay updated with the latest news, events, and important notices from your barangay.</p>
+                <h3>Monitor Complaint Status</h3>
+                <p>Stay updated in the status of your Complaints.</p>
             </a>
             <a href="#" class="service-card">
                 <div class="service-icon">🚨</div>
